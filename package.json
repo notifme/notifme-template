@@ -7,6 +7,8 @@
   "author": "Notif.me",
   "license": "MIT",
   "devDependencies": {
+    "notification-catcher": "^1.0.3",
+    "notifme-sdk": "^1.0.0",
     "nunjucks": "^3.0.1"
   }
 }

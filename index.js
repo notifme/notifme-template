@@ -1,10 +1,4 @@
-const nunjucks = require('nunjucks')
-const getWelcomeTemplate = require('./examples/welcome')
-
-nunjucks.configure({autoescape: false})
-function myRenderer (chunk, data) {
-  return nunjucks.renderString(chunk, data)
-}
+const path = require('path')
 
 function resolveObjectProperties (globalResolve, promiseObject) {
   Promise.all(Object.keys(promiseObject).map((key) => {
@@ -17,15 +11,15 @@ function resolveObjectProperties (globalResolve, promiseObject) {
   }, {})))
 }
 
-function render (chunk, data) {
+function render (renderer, chunk, data) {
   return new Promise((resolve) => {
     if (typeof chunk === 'string') {
-      Promise.resolve(myRenderer(chunk, data)).then(resolve)
+      Promise.resolve(renderer(chunk, data)).then(resolve)
     } else if (Array.isArray(chunk)) {
-      Promise.all(chunk.map((value) => render(value, data))).then(resolve)
+      Promise.all(chunk.map((value) => render(renderer, value, data))).then(resolve)
     } else if (chunk !== null && typeof chunk === 'object') {
       resolveObjectProperties(resolve, Object.keys(chunk).reduce((acc, key) => {
-        acc[key] = render(chunk[key], data)
+        acc[key] = render(renderer, chunk[key], data)
         return acc
       }, {}))
     } else {
@@ -34,8 +28,19 @@ function render (chunk, data) {
   })
 }
 
-Promise.resolve(getWelcomeTemplate()).then((template) => {
-  render(template, template.sampleData).then((notification) => {
-    console.log(notification)
-  })
-})
+function getTemplateFromName (templateName, folder) {
+  const getTemplate = require(path.resolve(folder, templateName))
+  return Promise.resolve(getTemplate())
+}
+
+module.exports = (renderer, folder) => {
+  return (templateName, data) => {
+    return new Promise((resolve) => {
+      getTemplateFromName(templateName, folder).then((template) => {
+        render(renderer, template, data).then((notification) => {
+          resolve(notification)
+        })
+      })
+    })
+  }
+}
