@@ -670,6 +670,10 @@ finalhandler@0.4.1:
     on-finished "~2.3.0"
     unpipe "~1.0.0"
 
+flow-bin@^0.53.1:
+  version "0.53.1"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.53.1.tgz#9b22b63a23c99763ae533ebbab07f88c88c97d84"
+
 for-in@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -1393,9 +1397,9 @@ notification-catcher@^1.0.3:
     socket.io "1.7.3"
     wildstring "1.0.8"
 
-notifme-sdk@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/notifme-sdk/-/notifme-sdk-1.0.0.tgz#c745a25550d9152380c533b5b7a745059ef85eb6"
+notifme-sdk@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/notifme-sdk/-/notifme-sdk-1.0.1.tgz#b9c6fbf5dd6300099a9920439ae944bb4fad8163"
   dependencies:
     babel-runtime "6.25.0"
     form-data "2.2.0"

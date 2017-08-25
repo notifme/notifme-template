@@ -1,7 +1,10 @@
+/* @flow */
+/* :: import type {NotificationType} from '../../../types' */
+
 const fs = require('fs')
 const path = require('path')
 
-function getWelcomeTemplate (emailHtml) {
+function getWelcomeTemplate (emailHtml) /* : NotificationType */ {
   return {
     name: 'welcome',
     title: 'Welcome {{user.firstname}}',
@@ -24,6 +27,13 @@ function getWelcomeTemplate (emailHtml) {
         body: "Hi {{user.firstname}}, we're very happy to welcome you on board"
       },
       webpush: {
+        subscription: {
+          endpoint: '{{user.webpush.endpoint}}',
+          keys: {
+            auth: '{{user.webpush.keys.auth}}',
+            p256dh: '{{user.webpush.keys.auth}}'
+          }
+        },
         title: 'Welcome {{user.firstname}}',
         body: "Hi {{user.firstname}}, we're very happy to welcome you on board",
         icon: 'https://fakeimg.pl/100x100/',
@@ -49,7 +59,14 @@ function getWelcomeTemplate (emailHtml) {
         firstname: 'John',
         email: 'john@example.com',
         phone: '+15000000001',
-        pushToken: 'xxxxx'
+        pushToken: 'xxxxx',
+        webpush: {
+          endpoint: 'xxxxx',
+          keys: {
+            auth: 'xxxxx',
+            p256dh: 'xxxxx'
+          }
+        }
       }
     }
   }

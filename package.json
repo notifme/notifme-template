@@ -6,12 +6,23 @@
   "repository": "https://github.com/notifme/notifme-template",
   "author": "Notif.me",
   "license": "MIT",
+  "scripts": {
+    "dev": "node example/index.js",
+    "lint": "yarn run flow",
+    "run-catcher": "notification-catcher",
+    "test": "yarn run lint"
+  },
   "devDependencies": {
+    "flow-bin": "^0.53.1",
     "notification-catcher": "^1.0.3",
-    "notifme-sdk": "^1.0.0",
+    "notifme-sdk": "^1.0.1",
     "nunjucks": "^3.0.1"
   },
   "optionalDependencies": {
     "juice": "^4.1.0"
-  }
+  },
+  "files": [
+    "index.js",
+    "types.js"
+  ]
 }
