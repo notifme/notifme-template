@@ -10,5 +10,8 @@
     "notification-catcher": "^1.0.3",
     "notifme-sdk": "^1.0.0",
     "nunjucks": "^3.0.1"
+  },
+  "optionalDependencies": {
+    "juice": "^4.1.0"
   }
 }

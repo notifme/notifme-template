@@ -1,4 +1,10 @@
 const path = require('path')
+let juice
+try {
+  juice = require('juice')
+} catch (error) {
+  juice = null
+}
 
 function resolveObjectProperties (globalResolve, promiseObject) {
   Promise.all(Object.keys(promiseObject).map((key) => {
@@ -33,12 +39,19 @@ function getTemplateFromName (templateName, folder) {
   return Promise.resolve(getTemplate())
 }
 
-module.exports = (renderer, folder) => {
+function inlineCss (notif, juiceOptions) {
+  if (juice && juiceOptions !== false && notif && notif.channels && notif.channels.email && notif.channels.email.html) {
+    notif.channels.email.html = juice(notif.channels.email.html, Object.assign({removeStyleTags: false}, juiceOptions))
+  }
+  return notif
+}
+
+module.exports = (renderer, folder, options = {}) => {
   return (templateName, data) => {
     return new Promise((resolve) => {
       getTemplateFromName(templateName, folder).then((template) => {
         render(renderer, template, data).then((notification) => {
-          resolve(notification)
+          resolve(inlineCss(notification, options.juice))
         })
       })
     })
