@@ -34,9 +34,13 @@ function render (renderer, chunk, data) {
   })
 }
 
+const templates = {}
 function getTemplateFromName (templateName, folder) {
-  const getTemplate = require(path.resolve(folder, templateName))
-  return Promise.resolve(getTemplate())
+  if (!templates[templateName]) {
+    const getTemplate = require(path.resolve(folder, templateName))
+    templates[templateName] = getTemplate()
+  }
+  return Promise.resolve(templates[templateName])
 }
 
 function inlineCss (notif, juiceOptions) {
