@@ -1,0 +1,9 @@
+{
+  "name": "notifme-template",
+  "version": "0.0.1",
+  "description": "A Node.js library to easily handle all your notification templates",
+  "main": "index.js",
+  "repository": "https://github.com/notifme/notifme-template",
+  "author": "Notif.me",
+  "license": "MIT"
+}
