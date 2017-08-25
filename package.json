@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "https://github.com/notifme/notifme-template",
   "author": "Notif.me",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "nunjucks": "^3.0.1"
+  }
 }
