@@ -23,5 +23,7 @@ const data = {
   }
 }
 render('welcome', data).then((notification) => {
+  // Select channels
+  // (here you can decide things like: if push or webpush exists, then don't send an SMS)
   notifmeSdk.send(notification.channels)
 })

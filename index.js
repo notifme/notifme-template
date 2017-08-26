@@ -53,12 +53,30 @@ function inlineCss (notif /* : NotificationType */, juiceOptions /* : $PropertyT
   return notif
 }
 
+function filterChannelsWithEmptyContact (notif /* : NotificationType */) {
+  if (notif && notif.channels) {
+    if (notif.channels.email && !notif.channels.email.to) {
+      delete notif.channels.email
+    }
+    if (notif.channels.sms && !notif.channels.sms.to) {
+      delete notif.channels.sms
+    }
+    if (notif.channels.push && !notif.channels.push.registrationToken) {
+      delete notif.channels.push
+    }
+    if (notif.channels.webpush && (!notif.channels.webpush.subscription || !notif.channels.webpush.subscription.endpoint)) {
+      delete notif.channels.webpush
+    }
+  }
+  return notif
+}
+
 module.exports = (renderer /* : RendererType */, folder /* : string */, options /* : OptionsType */ = {}) => {
   return (templateName /* : string */, data /* : Object */) /* : Promise<NotificationType> */ => {
     return new Promise((resolve) => {
       getTemplateFromName(templateName, folder).then((template) => {
         render(renderer, template, data).then((notification) => {
-          resolve(inlineCss(notification, options.juice))
+          resolve(inlineCss(filterChannelsWithEmptyContact(notification), options.juice))
         })
       })
     })
