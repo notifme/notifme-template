@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "node example/index.js",
-    "lint": "yarn run flow",
+    "lint": "yarn run flow && standard",
     "run-catcher": "notification-catcher",
     "test": "yarn run lint"
   },
@@ -16,7 +16,8 @@
     "flow-bin": "^0.53.1",
     "notification-catcher": "^1.0.3",
     "notifme-sdk": "^1.0.1",
-    "nunjucks": "^3.0.1"
+    "nunjucks": "^3.0.1",
+    "standard": "^10.0.3"
   },
   "optionalDependencies": {
     "juice": "^4.1.0"
