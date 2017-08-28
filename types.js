@@ -26,7 +26,7 @@ export type NotificationType = {
   title: string,
   version: number,
   channels: {
-    email: {
+    email?: {
       from: string,
       to: string,
       subject: string,
@@ -42,7 +42,7 @@ export type NotificationType = {
       }[],
       headers?: {[string]: string | number | boolean}
     },
-    sms: {
+    sms?: {
       from: string,
       to: string,
       text: string,
@@ -51,7 +51,7 @@ export type NotificationType = {
       ttl?: number,
       messageClass?: 0 | 1 | 2 | 3
     },
-    push: {
+    push?: {
       registrationToken: string,
       title: string,
       body: string,
@@ -93,7 +93,7 @@ export type NotificationType = {
       duration?: string, // wns
       consolidationKey?: string // ADM
     },
-    webpush: {
+    webpush?: {
       subscription: {
         endpoint: string,
         keys: {

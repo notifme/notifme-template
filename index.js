@@ -48,6 +48,7 @@ function getTemplateFromName (templateName /* : string */, folder /* : string */
 
 function inlineCss (notif /* : NotificationType */, juiceOptions /* : $PropertyType<OptionsType, 'juice'> */) {
   if (juice && juiceOptions !== false && notif && notif.channels && notif.channels.email && notif.channels.email.html) {
+    // $FlowIgnore
     notif.channels.email.html = juice(notif.channels.email.html, Object.assign({}, {removeStyleTags: false}, juiceOptions))
   }
   return notif
