@@ -16,7 +16,12 @@ function getTemplate () /* : TemplateType */ {
         from: '{{emailFrom}}',
         to: '{{user.email}}',
         subject: '[Simple] Welcome {{user.firstname}}',
-        html: `{% extends "example/templates/_layouts/email-transactional.html" %} {% block content %} Hi {{user.firstname}},<br><br> We're very happy to welcome you on board.<br><br> See you soon! {% endblock %}`
+        html: `{% extends "example/templates/_layouts/email-transactional.html" %}
+          {% block content %}
+          Hi {{user.firstname}},<br><br>
+          We're very happy to welcome you on board.<br><br>
+          See you soon!
+          {% endblock %}`
       },
       push: {
         registrationToken: '{{user.pushToken}}',
