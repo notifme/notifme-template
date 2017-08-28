@@ -3,7 +3,7 @@
 
 function getTemplate () /* : TemplateType */ {
   return {
-    name: 'welcome-multi-channels',
+    name: 'welcome-simple',
     title: 'Welcome {{user.firstname}}',
     version: 1,
     channels: {
