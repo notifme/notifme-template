@@ -37,6 +37,11 @@ render('welcome-multi-channels', data).then((notification) => {
   notifmeSdk.send(notification.channels)
 })
 
+// Simple multi-channels example
+render('welcome-simple', data).then((notification) => {
+  notifmeSdk.send(notification.channels)
+})
+
 // Localized example
 render('welcome-localized-simple', data, 'fr').then((notification) => {
   notifmeSdk.send(notification.channels)
