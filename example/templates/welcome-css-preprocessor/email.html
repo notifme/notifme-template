@@ -1,0 +1,13 @@
+{% extends "example/templates/_layouts/email-transactional.html" %}
+
+{% block content %}
+  <style>
+    {{extracss}}
+  </style>
+
+  <div class="content">
+    Hi <span class="username">{{user.firstname}}</span>,<br><br>
+    We're very happy to welcome you on board.<br><br>
+    See you soon!
+  </div>
+{% endblock %}

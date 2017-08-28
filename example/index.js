@@ -32,12 +32,17 @@ const data = {
 
 // Multi-channels example
 render('welcome-multi-channels', data).then((notification) => {
-  // Select channels
-  // (here you can decide things like: if push or webpush exists, then don't send an SMS)
+  // Then select channels...
+  // (you can do things like: if push or webpush exists, then don't send an SMS)
   notifmeSdk.send(notification.channels)
 })
 
 // Localized example
 render('welcome-localized-simple', data, 'fr').then((notification) => {
+  notifmeSdk.send(notification.channels)
+})
+
+// Example with a CSS preprocessor
+render('welcome-css-preprocessor', data).then((notification) => {
   notifmeSdk.send(notification.channels)
 })
