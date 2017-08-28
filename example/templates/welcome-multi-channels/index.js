@@ -1,5 +1,5 @@
 /* @flow */
-/* :: import type {NotificationType} from '../../../types' */
+/* :: import type {TemplateType} from '../../../types' */
 
 const fs = require('fs')
 const path = require('path')
@@ -12,7 +12,7 @@ function getTemplate () {
   })
 }
 
-function constructWelcomeTemplate (emailHtml) /* : NotificationType */ {
+function constructWelcomeTemplate (emailHtml) /* : TemplateType */ {
   return {
     name: 'welcome-multi-channels',
     title: 'Welcome {{user.firstname}}',

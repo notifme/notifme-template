@@ -1,5 +1,5 @@
 /* @flow */
-/* :: import type {RendererType, OptionsType, NotificationType} from './types' */
+/* :: import type {RendererType, OptionsType, TemplateType} from './types' */
 
 const path = require('path')
 let juice
@@ -49,7 +49,7 @@ function getTemplateFromName (templateName /* : string */, folder /* : string */
   return Promise.resolve(templates[templateName][lang])
 }
 
-function inlineCss (notif /* : NotificationType */, juiceOptions /* : $PropertyType<OptionsType, 'juice'> */) {
+function inlineCss (notif /* : TemplateType */, juiceOptions /* : $PropertyType<OptionsType, 'juice'> */) {
   if (juice && juiceOptions !== false && notif && notif.channels && notif.channels.email && notif.channels.email.html) {
     // $FlowIgnore
     notif.channels.email.html = juice(notif.channels.email.html, Object.assign({}, {removeStyleTags: false}, juiceOptions))
@@ -57,7 +57,7 @@ function inlineCss (notif /* : NotificationType */, juiceOptions /* : $PropertyT
   return notif
 }
 
-function filterChannelsWithEmptyContact (notif /* : NotificationType */) {
+function filterChannelsWithEmptyContact (notif /* : TemplateType */) {
   if (notif && notif.channels) {
     if (notif.channels.email && !notif.channels.email.to) {
       delete notif.channels.email
@@ -76,7 +76,7 @@ function filterChannelsWithEmptyContact (notif /* : NotificationType */) {
 }
 
 module.exports = (renderer /* : RendererType */, folder /* : string */, options /* : OptionsType */ = {}) => {
-  return (templateName /* : string */, data /* : Object */, lang /* : string */ = '') /* : Promise<NotificationType> */ => {
+  return (templateName /* : string */, data /* : Object */, lang /* : string */ = '') /* : Promise<TemplateType> */ => {
     return new Promise((resolve) => {
       getTemplateFromName(templateName, folder, lang).then((template) => {
         render(renderer, template, data).then((notification) => {

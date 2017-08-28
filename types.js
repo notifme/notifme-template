@@ -21,7 +21,7 @@ export type OptionsType = {
   }
 }
 
-export type NotificationType = {
+export type TemplateType = {
   name: string,
   title: string,
   version: number,

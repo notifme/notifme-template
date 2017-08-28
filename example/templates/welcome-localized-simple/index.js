@@ -1,5 +1,5 @@
 /* @flow */
-/* :: import type {NotificationType} from '../../../types' */
+/* :: import type {TemplateType} from '../../../types' */
 
 const fs = require('fs')
 const path = require('path')
@@ -26,7 +26,7 @@ function getTemplate (lang /* : string */) {
   })
 }
 
-function constructWelcomeTemplate (lang, emailHtml) /* : NotificationType */ {
+function constructWelcomeTemplate (lang, emailHtml) /* : TemplateType */ {
   return {
     name: 'welcome-localized-simple',
     title: 'Welcome {{user.firstname}}',
