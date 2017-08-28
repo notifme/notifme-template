@@ -36,3 +36,8 @@ render('welcome-multi-channels', data).then((notification) => {
   // (here you can decide things like: if push or webpush exists, then don't send an SMS)
   notifmeSdk.send(notification.channels)
 })
+
+// Localized example
+render('welcome-localized-simple', data, 'fr').then((notification) => {
+  notifmeSdk.send(notification.channels)
+})

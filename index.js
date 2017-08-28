@@ -38,12 +38,15 @@ function render (renderer /* : RendererType */, chunk /* : any */, data /* : Obj
 }
 
 const templates = {}
-function getTemplateFromName (templateName /* : string */, folder /* : string */) {
+function getTemplateFromName (templateName /* : string */, folder /* : string */, lang /* : string */) {
   if (!templates[templateName]) {
-    const getTemplate = require(`${path.resolve(folder, templateName)}`)
-    templates[templateName] = getTemplate()
+    templates[templateName] = {}
   }
-  return Promise.resolve(templates[templateName])
+  if (!templates[templateName][lang]) {
+    const getTemplate = require(`${path.resolve(folder, templateName)}`)
+    templates[templateName][lang] = getTemplate(lang)
+  }
+  return Promise.resolve(templates[templateName][lang])
 }
 
 function inlineCss (notif /* : NotificationType */, juiceOptions /* : $PropertyType<OptionsType, 'juice'> */) {
@@ -73,9 +76,9 @@ function filterChannelsWithEmptyContact (notif /* : NotificationType */) {
 }
 
 module.exports = (renderer /* : RendererType */, folder /* : string */, options /* : OptionsType */ = {}) => {
-  return (templateName /* : string */, data /* : Object */) /* : Promise<NotificationType> */ => {
+  return (templateName /* : string */, data /* : Object */, lang /* : string */ = '') /* : Promise<NotificationType> */ => {
     return new Promise((resolve) => {
-      getTemplateFromName(templateName, folder).then((template) => {
+      getTemplateFromName(templateName, folder, lang).then((template) => {
         render(renderer, template, data).then((notification) => {
           resolve(inlineCss(filterChannelsWithEmptyContact(notification), options.juice))
         })
