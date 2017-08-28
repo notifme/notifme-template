@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="https://notifme.github.io/notifme-sdk/img/favicon.ico">
+
+    <title>notifme/notifme-sdk: A Node.js library to send all kinds of transactional notifications.</title>
+    <meta name="description" content="notifme-sdk - A Node.js library to send all kinds of transactional notifications.">
+
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-77c3b874f32e71b14cded5a120f42f5c7288fa52e0a37f2d5919fbd8bcfca63c.css" integrity="sha256-d8O4dPMucbFM3tWhIPQvXHKI+lLgo38tWRn72Lz8pjw=" media="all" rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-6ebe72f92d204144cdef3a835e71687c40074733c90b94f104db80cdf5754533.css" integrity="sha256-br5y+S0gQUTN7zqDXnFofEAHRzPJC5TxBNuAzfV1RTM=" media="all" rel="stylesheet" />
+    <style>
+      article {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2% 0;
+      }
+      a.github-link {
+        background-color: #08ac69;
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 14px;
+        font-size: 18px;
+        border-radius: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://github.com/notifme/notifme-template"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+    <article class="markdown-body entry-content" itemprop="text"><p align="center">
+      <a href="https://www.notif.me">
+        <img alt="Notif.me" src="https://camo.githubusercontent.com/1908277165dceb6bcfe338f85b06fdbe834ad8c9/68747470733a2f2f6e6f7469666d652e6769746875622e696f2f6e6f7469666d652d73646b2f696d672f6c6f676f2e706e67" data-canonical-src="https://notifme.github.io/notifme-sdk/img/logo.png" style="max-width:100%;">
+      </a>
+    </p>
+    <p align="center">
+      Template plugin for <a href="https://github.com/notifme/notifme-sdk">Notif.me SDK</a>.
+    </p>
+    <p align="center">
+      <a href="https://www.npmjs.com/package/notifme-template"><img alt="npm-status" src="https://camo.githubusercontent.com/919c1f373dbacadd050e85c14c24ec2fc0a17f85/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f6e6f7469666d652d74656d706c6174652e7376673f7374796c653d666c6174" data-canonical-src="https://img.shields.io/npm/v/notifme-template.svg?style=flat" style="max-width:100%;"></a>
+      <a href="https://github.com/standard/standard"><img alt="js-standard-style" src="https://camo.githubusercontent.com/6020318037390275c03771e4381eb74747478b03/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f64657374796c652d7374616e646172642d627269676874677265656e2e7376673f7374796c653d666c6174" data-canonical-src="https://img.shields.io/badge/codestyle-standard-brightgreen.svg?style=flat" style="max-width:100%;"></a>
+      <a href="https://flow.org/"><img alt="flow-typed" src="https://camo.githubusercontent.com/b4314789204245437368aa09c2b04ca6628beab3/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f747970696e672d466c6f775f547970652d627269676874677265656e2e7376673f7374796c653d666c6174" data-canonical-src="https://img.shields.io/badge/typing-Flow_Type-brightgreen.svg?style=flat" style="max-width:100%;"></a>
+      <a href="https://github.com/notifme/notifme-template/blob/master/LICENSE"><img alt="license" src="https://camo.githubusercontent.com/d2db02b966169f67c346ccd253a63f61077ea86a/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49545f4c6963656e73652d626c75652e7376673f7374796c653d666c6174" data-canonical-src="https://img.shields.io/badge/license-MIT_License-blue.svg?style=flat" style="max-width:100%;"></a>
+    </p>
+    <h2><a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Features</h2>
+    <ul>
+    <li>
+    <p><strong>All your notifications in one place</strong> — Define all your <code>email</code>, <code>sms</code>, <code>push</code>, and <code>webpush</code> templates in one folder <g-emoji alias="+1" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f44d.png" ios-version="6.0"><img class="emoji" alt=":+1:" height="20" width="20" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f44d.png"></g-emoji></p>
+    </li>
+    <li>
+    <p><strong>Choose your template engine</strong> — <code>facebook/react</code>, <code>pug (formerly jade)</code>, <code>mozilla/nunjucks</code>, <code>handlebars.js</code>, <code>mustache.js</code>, <code>lodash</code>, <code>underscore</code>, <code>marko</code>, <code>doT</code>, <code>swig</code>, <code>linkedin/dustjs</code>, <code>twig.js</code>, <code>ejs</code>... and many more. Literally the one you want <g-emoji alias="dancer" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f483.png" ios-version="6.0"><img class="emoji" alt=":dancer:" height="20" width="20" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f483.png"></g-emoji></p>
+    </li>
+    <li>
+    <p><strong>Complete control</strong> — No magic: you define all the behaviours you need (layouts, CSS preprocessor...) <g-emoji alias="rocket" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f680.png" ios-version="6.0"><img class="emoji" alt=":rocket:" height="20" width="20" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f680.png"></g-emoji></p>
+    </li>
+    <li>
+    <p><strong>No dependencies</strong> — Lightning fast installation <g-emoji alias="zap" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a1.png" ios-version="6.0"><img class="emoji" alt=":zap:" height="20" width="20" src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a1.png"></g-emoji></p>
+    </li>
+    <li>
+    <p><strong>Localization</strong> — Easily implement i18n/l10n for all your notifications <g-emoji alias="globe_with_meridians" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f310.png" ios-version="6.0"><img class="emoji" alt=":globe_with_meridians:" height="20" width="20" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f310.png"></g-emoji></p>
+    </li>
+    <li>
+    <p><strong>CSS inlining</strong> — Add <a href="https://github.com/Automattic/juice">Juice</a> to your dependencies and the CSS in your emails will automatically be inlined <g-emoji alias="ribbon" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f380.png" ios-version="6.0"><img class="emoji" alt=":ribbon:" height="20" width="20" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f380.png"></g-emoji></p>
+    </li>
+    <li>
+    <p><strong>MIT license</strong> — Use it like you want.</p>
+    </li>
+    </ul>
+    <br>
+    <p align="center">
+      <a href="https://github.com/notifme/notifme-template" class="github-link">See complete documentation on GitHub</a>
+    </p>
+    <br>
+    </article>
+  </body>
+</html>
