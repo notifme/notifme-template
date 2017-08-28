@@ -4,26 +4,34 @@
 const fs = require('fs')
 const path = require('path')
 
-function getWelcomeTemplate (emailHtml) /* : NotificationType */ {
+function getTemplate () {
+  return new Promise((resolve, reject) => {
+    fs.readFile(path.join(__dirname, './email.html'), (error, emailHtml) => {
+      error ? reject(error) : resolve(constructWelcomeTemplate(emailHtml.toString('utf8')))
+    })
+  })
+}
+
+function constructWelcomeTemplate (emailHtml) /* : NotificationType */ {
   return {
-    name: 'welcome',
+    name: 'welcome-multi-channels',
     title: 'Welcome {{user.firstname}}',
     version: 1,
     channels: {
       sms: {
         from: '{{smsFrom}}',
         to: '{{user.phone}}',
-        text: "Hi {{user.firstname}}, we're very happy to welcome you on board!"
+        text: "[Multi-channel] Hi {{user.firstname}}, we're very happy to welcome you on board!"
       },
       email: {
         from: '{{emailFrom}}',
         to: '{{user.email}}',
-        subject: 'Welcome {{user.firstname}}',
+        subject: '[Multi-channel] Welcome {{user.firstname}}',
         html: emailHtml
       },
       push: {
         registrationToken: '{{user.pushToken}}',
-        title: 'Welcome {{user.firstname}}',
+        title: '[Multi-channel] Welcome {{user.firstname}}',
         body: "Hi {{user.firstname}}, we're very happy to welcome you on board"
       },
       webpush: {
@@ -34,7 +42,7 @@ function getWelcomeTemplate (emailHtml) /* : NotificationType */ {
             p256dh: '{{user.webpush.keys.auth}}'
           }
         },
-        title: 'Welcome {{user.firstname}}',
+        title: '[Multi-channel] Welcome {{user.firstname}}',
         body: "Hi {{user.firstname}}, we're very happy to welcome you on board",
         icon: 'https://fakeimg.pl/100x100/',
         image: 'https://fakeimg.pl/400x240/',
@@ -72,8 +80,4 @@ function getWelcomeTemplate (emailHtml) /* : NotificationType */ {
   }
 }
 
-module.exports = () => new Promise((resolve, reject) => {
-  fs.readFile(path.join(__dirname, './email.html'), (error, emailHtml) => {
-    error ? reject(error) : resolve(getWelcomeTemplate(emailHtml.toString('utf8')))
-  })
-})
+module.exports = getTemplate

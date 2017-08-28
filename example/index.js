@@ -2,7 +2,7 @@ const nunjucks = require('nunjucks')
 const NotifmeSdk = require('notifme-sdk').default
 const getRenderer = require('..')
 
-// Renderer
+// Renderer (Example with nunjucks)
 nunjucks.configure({autoescape: false})
 const render = getRenderer(nunjucks.renderString, 'example/templates')
 
@@ -19,10 +19,19 @@ const data = {
     firstname: 'John',
     email: 'john@example.com',
     phone: '+15000000001',
-    pushToken: 'xxxxx'
+    pushToken: 'xxxxx',
+    webpush: {
+      endpoint: 'xxxxx',
+      keys: {
+        auth: 'xxxxx',
+        p256dh: 'xxxxx'
+      }
+    }
   }
 }
-render('welcome', data).then((notification) => {
+
+// Multi-channels example
+render('welcome-multi-channels', data).then((notification) => {
   // Select channels
   // (here you can decide things like: if push or webpush exists, then don't send an SMS)
   notifmeSdk.send(notification.channels)
