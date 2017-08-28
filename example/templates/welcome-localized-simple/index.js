@@ -1,8 +1,8 @@
 /* @flow */
 /* :: import type {TemplateType} from '../../../types' */
 
-const fs = require('fs')
 const path = require('path')
+const readFile = require('../../util').readFile
 
 const l10n = {
   'email-template': {
@@ -19,11 +19,8 @@ function _ (key, lang) {
 }
 
 function getTemplate (lang /* : string */) {
-  return new Promise((resolve, reject) => {
-    fs.readFile(path.join(__dirname, _('email-template', lang)), (error, emailHtml) => {
-      error ? reject(error) : resolve(constructWelcomeTemplate(lang, emailHtml.toString('utf8')))
-    })
-  })
+  return readFile(path.join(__dirname, _('email-template', lang)))
+    .then((emailHtml) => constructWelcomeTemplate(lang, emailHtml))
 }
 
 function constructWelcomeTemplate (lang, emailHtml) /* : TemplateType */ {
