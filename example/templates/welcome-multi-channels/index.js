@@ -1,5 +1,5 @@
 /* @flow */
-/* :: import type {TemplateType} from '../../../types' */
+/* :: import type {TemplateType} from '../../../types' */ // notifme-template/types
 
 const path = require('path')
 const readFile = require('../../util').readFile

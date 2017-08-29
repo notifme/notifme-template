@@ -1,5 +1,5 @@
 /* @flow */
-/* :: import type {TemplateType} from '../../types' */
+/* :: import type {TemplateType} from '../../types' */ // notifme-template/types
 
 function getTemplate () /* : TemplateType */ {
   return {
@@ -18,9 +18,9 @@ function getTemplate () /* : TemplateType */ {
         subject: '[Simple] Welcome {{user.firstname}}',
         html: `{% extends "example/templates/_layouts/email-transactional.html" %}
           {% block content %}
-          Hi {{user.firstname}},<br><br>
-          We're very happy to welcome you on board.<br><br>
-          See you soon!
+            Hi {{user.firstname}},<br><br>
+            We're very happy to welcome you on board.<br><br>
+            See you soon!
           {% endblock %}`
       },
       push: {

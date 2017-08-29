@@ -50,7 +50,7 @@ const getRenderer = require('notifme-template')
 
 const render = getRenderer(nunjucks.renderString, './templates')
 
-const data = {user: {firstname: 'John', email: 'john@example.com'}}
+const data = {user: {firstname: 'John', email: 'john@example.com', ...}}
 render('welcome', data, 'en-US').then((notification) => {
   // Send the notification on its channels
 })
@@ -74,9 +74,9 @@ module.exports = () => ({
       subject: 'Welcome {{user.firstname}}',
       html: `{% extends "templates/_layouts/email-transactional.html" %}
         {% block content %}
-        Hi {{user.firstname}},<br><br>
-        We're very happy to welcome you on board.<br><br>
-        See you soon!
+          Hi {{user.firstname}},<br><br>
+          We're very happy to welcome you on board.<br><br>
+          See you soon!
         {% endblock %}`
     },
     push: {

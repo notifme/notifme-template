@@ -11,8 +11,7 @@ Go to the [template folder](https://github.com/notifme/notifme-template/tree/mas
 <h3>How to run</h3>
 
 ```shell
-$ git clone https://github.com/notifme/notifme-template.git
-$ cd notifme-template
+$ git clone https://github.com/notifme/notifme-template.git && cd notifme-template
 $ yarn install
 $ yarn run notification-catcher
 $ # In a new terminal:

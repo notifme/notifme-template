@@ -1,6 +1,6 @@
 const nunjucks = require('nunjucks')
 const NotifmeSdk = require('notifme-sdk').default
-const getRenderer = require('..')
+const getRenderer = require('..') // notifme-template
 
 // Renderer (Example with nunjucks)
 nunjucks.configure({autoescape: false})
