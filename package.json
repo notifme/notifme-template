@@ -13,7 +13,7 @@
     "test": "yarn run lint"
   },
   "devDependencies": {
-    "flow-bin": "^0.53.1",
+    "flow-bin": "^0.56.0",
     "node-sass": "^4.5.3",
     "notification-catcher": "^1.0.3",
     "notifme-sdk": "^1.0.1",
