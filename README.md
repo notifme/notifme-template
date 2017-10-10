@@ -23,6 +23,8 @@
 
 ## Features
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/notifme/notifme-template.svg)](https://greenkeeper.io/)
+
 * **All your notifications in one place** — Define all your `email`, `sms`, `push`, and `webpush` templates in one folder :thumbsup:
 
 * **Choose your template engine** — `facebook/react`, `pug (formerly jade)`, `mozilla/nunjucks`, `handlebars.js`, `mustache.js`, `lodash`, `underscore`, `marko`, `doT`, `swig`, `linkedin/dustjs`, `twig.js`, `ejs`... and many more. Literally the one you want :dancer:
